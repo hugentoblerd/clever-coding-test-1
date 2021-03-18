@@ -3,9 +3,9 @@
     <h1 v-if="selectedNumber">The selected number is {{ selectedNumber }}</h1>
     <h1 v-else>None Selected</h1>
     <div class="container">
-        <div class="content" v-for="number in numbers" :key="number">
-            <button v-on:click="selectedNumber = number">{{ number }}</button>
-        </div>
+      <div class="content" v-for="number in numbers" :key="number">
+          <button v-on:click="selectedNumber = number">{{ number }}</button>
+      </div>
     </div>
   </div>
 </template>
@@ -29,14 +29,28 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
-}
 .container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0 20px;
 }
 .content {
     width: 50px;
+}
+
+/* --- Tablets --- */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .container {
+    grid-template-columns: repeat(10, 1fr);
+    margin: 0 50px;
+  }
+}
+
+/* --- Desktop --- */
+@media only screen and (min-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(20, 1fr);
+    margin: 0 50px;
+  }
 }
 </style>
