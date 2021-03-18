@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NumberSelector :numbers="numbers" :selectedNumber="selectedNumber"/>
+    <NumberSelector :numbers="numbers" :selectedNumber="selectedNumber" @update-number="updateSelected" />
   </div>
 </template>
 
@@ -23,6 +23,11 @@ export default {
 
     for (let i = 0; i < 100; i++) {
       this.numbers = num++
+    }
+  },
+  methods: {
+    updateSelected (newNumber) {
+      this.selectedNumber = newNumber
     }
   }
 }

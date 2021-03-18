@@ -2,17 +2,21 @@
   <div class="hello">
     <h1 v-if="selectedNumber">The selected number is {{ selectedNumber }}</h1>
     <h1 v-else>None Selected</h1>
+
     <div class="container">
-      <div class="content" v-for="number in numbers" :key="number">
-          <button v-on:click="selectedNumber = number">{{ number }}</button>
-      </div>
+      <NumberButton v-for="number in numbers" @update-number="$emit('update-number', number)" :key="number" :number="number" />
     </div>
   </div>
 </template>
 
 <script>
+import NumberButton from './NumberButton'
+
 export default {
-  props: ['numbers', 'selectedNumber']
+  props: ['numbers', 'selectedNumber'],
+  components: {
+    NumberButton
+  }
 }
 </script>
 
@@ -33,9 +37,6 @@ li {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     margin: 0 20px;
-}
-.content {
-    width: 50px;
 }
 
 /* --- Tablets --- */
