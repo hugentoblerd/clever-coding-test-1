@@ -22,12 +22,12 @@ export default {
     let num = 1
 
     for (let i = 0; i < 100; i++) {
-      this.numbers = num++
+      this.numbers.push(num++)
     }
   },
   methods: {
     updateSelected (newNumber) {
-      this.selectedNumber = newNumber
+      this.selectedNumber === newNumber ? this.selectedNumber = false : this.selectedNumber = newNumber
     }
   }
 }

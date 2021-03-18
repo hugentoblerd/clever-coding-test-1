@@ -4,7 +4,12 @@
     <h1 v-else>None Selected</h1>
 
     <div class="container">
-      <NumberButton v-for="number in numbers" @update-number="$emit('update-number', number)" :key="number" :number="number" />
+      <NumberButton
+        :class="{active: number === selectedNumber}"
+        v-for="number in numbers"
+        @update-number="$emit('update-number', number)"
+        :key="number" :number="number"
+      />
     </div>
   </div>
 </template>
@@ -34,24 +39,25 @@ li {
   margin: 0 10px;
 }
 .container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    margin: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0 auto;
+  max-width: 500px;
 }
 
-/* --- Tablets --- */
-@media only screen and (min-width: 768px) and (max-width: 1199px) {
+/* --- Tablet --- */
+@media all and (min-width: 768px) and (max-width: 1199px) {
   .container {
     grid-template-columns: repeat(10, 1fr);
-    margin: 0 50px;
+    max-width: 900px;
   }
 }
 
 /* --- Desktop --- */
-@media only screen and (min-width: 1200px) {
+@media all and (min-width: 1200px) {
   .container {
-    grid-template-columns: repeat(20, 1fr);
-    margin: 0 50px;
+    grid-template-columns: repeat(15, 1fr);
+    max-width: 1200px;
   }
 }
 </style>

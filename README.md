@@ -24,4 +24,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 - [x] Bonus points make each grid item (individual numbers) a separate component and then pass in the number as a property of the grid item.  When the grid item is clicked communicate with the main page/component to reactively update the header with the number of the grid item that was clicked on.
 
-- [ ] Have the selected number grid item display with a color border around it setting it apart from the other grid items.
+- [x] Have the selected number grid item display with a color border around it setting it apart from the other grid items.
