@@ -1,4 +1,4 @@
-# clever-coding-test
+# Frontend Programming Assessment
 
 > A Vue.js project
 
